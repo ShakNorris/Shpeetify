@@ -29,17 +29,30 @@ function App() {
       spotify.setAccessToken(_token)
 
       spotify.getMe().then(user => {
-        console.log(user)
 
         dispatch({ //pops user right into the data layer
           type: "SET_USER",
           user: user
         })
       }) //returns user account info
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists: playlists,
+        })
+      })
+
+      spotify.getPlaylist('6mTQy6HN8ef9xzP5KfxGOU').then(response=>{
+        dispatch({
+          type:"SET_DISCOVER_WEEKLY",
+          discover_weekly: response
+        })
+      })
     }
 
     // console.log(token)
-  }, []);
+  }, [token,dispatch]);
 
   return (
     <div className="App">
