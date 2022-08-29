@@ -1,1 +1,1 @@
-# Demo website for spotify clone - nothing crazy, just the design and test for spotify API
+# Demo website for spotify clone - nothing crazy, just spotify frontend and test for spotify API
